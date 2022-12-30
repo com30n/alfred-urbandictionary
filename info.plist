@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>urbandictionary</string>
+	<key>category</key>
+	<string>Internet</string>
 	<key>connections</key>
 	<dict>
 		<key>88113EBE-04DE-4051-B8EE-B14E06C6C8BE</key>
@@ -128,6 +130,6 @@
 	<key>version</key>
 	<string>1.0.0</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/com30n/alfred-urbandictionary</string>
 </dict>
 </plist>
