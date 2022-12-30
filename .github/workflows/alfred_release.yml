@@ -12,10 +12,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: "Build Alfred Workflow"
       id: alfred_builder
-      uses: mperezi/build-alfred-workflow@v1
+      uses: com30n/build-alfred-workflow@v1.1.0
       with:
         workflow_dir: "."
-        exclude_patterns: '*.pyc *__pycache__/* *doc/ .gitignore README.md pyproject.toml *.alfredworkflow'
+        exclude_patterns: '*.pyc *__pycache__/* *doc/ .gitignore README.md pyproject.toml *.alfredworkflow *.git/*'
+        template_files: "workflow_src.py"
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
