@@ -2,6 +2,9 @@
 
 Search a word explanation in urbandictionary using alfred workflows
 
+## Installation:
+ - get the latest release and download the `Urban-Dictionary-1.x.x.alfredworkflow` file
+
 ## How to
 
 - overview top 10 results: `ub [word]`
@@ -11,4 +14,4 @@ Search a word explanation in urbandictionary using alfred workflows
 
 ## Prerequisites
 
-- pytohn3
+- python3
