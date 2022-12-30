@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>urbandictionary</string>
+	<key>connections</key>
+	<dict>
+		<key>88113EBE-04DE-4051-B8EE-B14E06C6C8BE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7ED2B6AB-C238-4E24-893D-BA092C263049</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>com30n</string>
+	<key>description</key>
+	<string>The workflow is trying to explain words using urbandictionary</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Urban Dictionary</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>7ED2B6AB-C238-4E24-893D-BA092C263049</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>ub</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>getting results...</string>
+				<key>script</key>
+				<string>from urllib import request
+import json
+
+query = "{query}"
+
+answer = {"items": [
+]}
+
+resp = request.urlopen(f"https://api.urbandictionary.com/v0/define?term={query}")
+
+text = resp.read()
+json_resp = json.loads(text)
+
+for item in sorted(json_resp['list'], key=lambda d: d['thumbs_up'], reverse=True):
+    answer['items'].append(
+        {
+            "uid": item['thumbs_up'],
+            "type": "default",
+            "title": item['definition'],
+            "subtitle": f"\U0001F44D: {item['thumbs_up']}, \U0001F44E: {item['thumbs_down']}",
+            "arg": item['permalink'],
+            "icon": {
+                "path": "./ub.ico"
+            },
+            "quicklookurl": item['permalink'],
+        }
+    )
+
+print(json.dumps(answer))
+</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Search the word in urbandictionary</string>
+				<key>type</key>
+				<integer>9</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>88113EBE-04DE-4051-B8EE-B14E06C6C8BE</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>The workflow is trying to explain words using urbandictionary</string>
+	<key>uidata</key>
+	<dict>
+		<key>7ED2B6AB-C238-4E24-893D-BA092C263049</key>
+		<dict>
+			<key>xpos</key>
+			<real>420</real>
+			<key>ypos</key>
+			<real>155</real>
+		</dict>
+		<key>88113EBE-04DE-4051-B8EE-B14E06C6C8BE</key>
+		<dict>
+			<key>xpos</key>
+			<real>140</real>
+			<key>ypos</key>
+			<real>155</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.0.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
