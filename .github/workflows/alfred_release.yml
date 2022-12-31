@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: "Build Alfred Workflow"
       id: alfred_builder
-      uses: com30n/build-alfred-workflow@update-info-plist-version-using-git-tag
+      uses: com30n/build-alfred-workflow@v1.1.0
       with:
         workflow_dir: "."
         exclude_patterns: '*.pyc *__pycache__/* doc/* .gitignore README.md pyproject.toml *.alfredworkflow *.git/* .github/*'
